@@ -13,6 +13,7 @@
     --screen-color: #545961;
     --background-color: aliceblue;
     --mainbtn-color: crimson;
+    --active-color: #d8d8d8;
 }
 .darkmode{
     --calculator-color: #10141a;
@@ -22,6 +23,7 @@
     --screen-color: #282b30;
     --background-color: #09061a;
     --mainbtn-color: aqua;
+    --active-color: #04030f;
 }
 
 .container{
@@ -48,12 +50,17 @@
     border: none;
     outline: none;
     border-radius: 10px;
-    box-shadow: 0px 2px 5px var(--shadow-color);
+    box-shadow: 0px 1px 3px var(--shadow-color);
     color: var(--font-color);
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
 }
+
+.container .calculator form input:active{
+    background-color: var(--active-color);
+}
+
 .container .calculator form .screen{
     display: flex;
     justify-content: flex-end;
