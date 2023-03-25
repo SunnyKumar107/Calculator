@@ -27,26 +27,43 @@ Object.entries(digitsToDisplay).forEach(([id, digit]) => {
   let elem = document.getElementById(id);
 
   elem.addEventListener("click", function () {
-    switch (id) {
-      case "clear":
-        display.value = "";
-        break;
-
-      case "del":
-        display.value = display.value.toString().slice(0, -1);
-        break;
-
-      case "equal":
-        display.value = eval(display.value);
-        break;
-
-      case "button":
-        document.body.classList.toggle(digit);
-        break;
-
-      default:
-        display.value += digit;
-        break;
+    if (elem === clear) {
+      display.value = "";
+    } else if (elem === del) {
+      display.value = display.value.toString().slice(0, -1);
+    } else if (elem === equal) {
+      display.value = eval(display.value);
+    } else if (elem === button) {
+      document.body.classList.toggle("darkmode");
+      if (elem.classList[1] === "fa-moon") {
+        elem.classList.replace("fa-moon", "fa-sun");
+      } else {
+        elem.classList.replace("fa-sun", "fa-moon");
+      }
+    } else {
+      display.value += digit;
     }
+
+    // switch (id) {
+    //   case "clear":
+    //     display.value = "";
+    //     break;
+
+    //   case "del":
+    //     display.value = display.value.toString().slice(0, -1);
+    //     break;
+
+    //   case "equal":
+    //     display.value = eval(display.value);
+    //     break;
+
+    //   case "button":
+    //     document.body.classList.toggle(digit);
+    //     break;
+
+    //   default:
+    //     display.value += digit;
+    //     break;
+    // }
   });
 });
